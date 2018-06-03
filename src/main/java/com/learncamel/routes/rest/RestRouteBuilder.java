@@ -8,8 +8,8 @@ public class RestRouteBuilder extends RouteBuilder {
         from("direct:restCall")
                 .to("log:?level=INFO&showBody=true")
                 .setHeader(Exchange.HTTP_METHOD, constant("GET"))
-                .setHeader(Exchange.HTTP_URI, simple("https://restcountries.eu/rest/v2/alpha/${body}"))
-                .to("https://restcountries.eu/rest/v2/alpha/${body}")
+                .setHeader(Exchange.HTTP_URI, simple("http://restcountries.eu/rest/v2/alpha/${body}"))
+                .to("http://restcountries.eu/rest/v2/alpha/${body}")
                 .to("log:?level=INFO&showBody=true");
     }
 }
