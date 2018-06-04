@@ -22,6 +22,6 @@ public class Rest2DbRouteBuilder extends RouteBuilder {
                 .process(new InsertProcessor())
                 .to("jdbc:PGDataSource")
                 .to("sql:select * from country_capital?dataSource=PGDataSource")
-                .to("direct:dbOutput");
+                /*.to("direct:dbOutput")*/;
     }
 }
