@@ -5,8 +5,11 @@ import com.learncamel.routes.exceptions.ExceptionProcessor;
 import org.apache.camel.Exchange;
 import org.apache.camel.builder.RouteBuilder;
 import org.postgresql.util.PSQLException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Rest2DbRouteBuilder extends RouteBuilder {
+    private Logger logger = LoggerFactory.getLogger(Rest2DbRouteBuilder.class);
     public void configure() throws Exception {
 
         from("timer:learnTimer?period=10s")
@@ -18,6 +21,7 @@ public class Rest2DbRouteBuilder extends RouteBuilder {
                 .to("log:?level=INFO&showBody=true")
                 .process(new InsertProcessor())
                 .to("jdbc:PGDataSource")
-                .to("sql:select * from country_capital?dataSource=myDataSource");
+                .to("sql:select * from country_capital?dataSource=PGDataSource")
+                .to("direct:dbOutput");
     }
 }

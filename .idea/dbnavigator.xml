@@ -26,12 +26,18 @@
     <loaded-nodes>
       <connection connection-id="9a7aa5d7-f3f6-424b-8528-5b8eb275b344">
         <schema name="information_schema" object-types="function, table, view" />
+        <schema name="pg_catalog" object-types="function, table, view" />
+        <schema name="public" object-types="function, table, view" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="9a7aa5d7-f3f6-424b-8528-5b8eb275b344">
-      <console name="PostgresTest" type="STANDARD"><![CDATA[select * from country_capital;]]></console>
+      <console name="PostgresTest" type="STANDARD"><![CDATA[select * from country_capital;
+
+delete from country_capital;
+
+commit;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
