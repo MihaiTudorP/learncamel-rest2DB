@@ -6,8 +6,8 @@ import org.postgresql.util.PSQLException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class DBPostgreRouteBuilder extends RouteBuilder {
-    private Logger logger = LoggerFactory.getLogger(DBPostgreRouteBuilder.class);
+public class DBPostgresRouteBuilder extends RouteBuilder {
+    private Logger logger = LoggerFactory.getLogger(DBPostgresRouteBuilder.class);
     public void configure() throws Exception {
         from("direct:dbInput")
                 .onException(PSQLException.class).handled(true).log("Exception While inserting messages.").end()
