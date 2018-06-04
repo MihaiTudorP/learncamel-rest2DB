@@ -59,6 +59,17 @@ public class Rest2DbRouteTest extends CamelTestSupport {
         assertNotEquals(0, responseList.size());
     }
 
+
+    @Test
+    public void rest2DbRouteException() throws SQLException, ClassNotFoundException {
+        clearCountryDataTable();
+        assertEquals(0, getDBRecordCount());
+        ArrayList responseList =  consumer.receiveBody("timer:learnTimer", ArrayList.class);
+
+        assertNull(responseList);
+
+    }
+
     private void clearCountryDataTable() throws ClassNotFoundException, SQLException {
         logger.info("Trying to clear the country table...");
         executeDBUpdate("delete from country_capital");
