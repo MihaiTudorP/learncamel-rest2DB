@@ -23,11 +23,15 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="9a7aa5d7-f3f6-424b-8528-5b8eb275b344">
+        <schema name="information_schema" object-types="function, table, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="9a7aa5d7-f3f6-424b-8528-5b8eb275b344">
-      <console name="PostgresTest" type="STANDARD" />
+      <console name="PostgresTest" type="STANDARD"><![CDATA[select * from country_capital;]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
